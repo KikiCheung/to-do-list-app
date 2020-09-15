@@ -2,10 +2,12 @@
 const todoInput = document.querySelector(".to-do-input");
 const todoButton = document.querySelector(".to-do-button");
 const todoList = document.querySelector(".to-do-list");
+const filterOption = document.querySelector(".filter-to-do");
 
 //Event Listeners
 todoButton.addEventListener("click", addToDo);
 todoList.addEventListener("click", deleteCheck);
+filterOption.addEventListener("click", filterToDo);
 
 //Functions
 function addToDo(event) {
@@ -51,4 +53,41 @@ function deleteCheck(e) {
     const todo = item.parentElement;
     todo.classList.toggle("completed");
   }
+}
+
+function filterToDo(e) {
+  const todos = todoList.childNodes;
+  todos.forEach(function (todo) {
+    switch (e.target.value) {
+      case "all":
+        todo.style.display = "flex";
+      // break;
+      case "completed":
+        if (todo.classList.contains("completed")) {
+          todo.style.display = "flex";
+        } else {
+          todo.style.display = "none";
+        }
+      // break;
+      case "uncompleted":
+        if (!todo.classList.contains("completed")) {
+          todo.style.display = "flex";
+        } else {
+          todo.style.display = "none";
+        }
+      // break;
+    }
+  });
+}
+
+function saveLocalTodos(todo) {
+  // check do i alreadt have thing in there?
+  let todos;
+  if (localStorage.getItem("todos") === null) {
+    todos = [];
+  } else {
+    todos = JSON.parse(localStorage.getItem("todos"));
+  }
+  todos.push(todo);
+  localStorage.setItem("todos", JSON.stringify(todos));
 }
