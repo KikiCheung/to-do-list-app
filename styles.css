@@ -43,14 +43,12 @@ form button:hover {
 }
 
 .to-do-container {
-  border: 1px solid blue;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .to-do-list {
-  border: 1px solid red;
   min-width: 30%;
   list-style: none;
 }
@@ -115,7 +113,6 @@ select {
   margin: 1rem;
   position: relative;
   overflow: hidden;
-  border: 3px red solid;
 }
 
 select {
@@ -123,7 +120,6 @@ select {
   width: 10rem;
   cursor: pointer;
   padding: 1rem;
-  border: 3px blue solid;
 }
 
 .select::after {
