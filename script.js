@@ -140,3 +140,13 @@ function removeLocalTodos(todo) {
   todos.splice(todos.indexOf(todoIndex), 1);
   localStorage.setItem("todos", JSON.stringify(todos));
 }
+
+//create darkmode
+
+const checkbox = document.getElementById("checkbox");
+checkbox.addEventListener("change", () => {
+  document.documentElement.classList.toggle("dark-mode");
+  document.querySelectorAll(".inverted").forEach((result) => {
+    result.classList.toggle("invert");
+  });
+});

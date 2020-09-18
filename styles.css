@@ -137,3 +137,61 @@ select {
   background: white;
   color: #ff6f47;
 }
+
+/*dark-mode*/
+
+.dark-mode-switch {
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  width: 95%;
+  margin: 10px;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+label {
+  background-color: black;
+  height: 26px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 50vw; /*50px*/
+  position: relative;
+  padding: 5px;
+  font-size: medium;
+}
+
+.ball {
+  height: 22px;
+  width: 22px;
+  background-color: white;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + label .ball {
+  transform: translateX(24px);
+}
+
+.fa-moon {
+  color: #f1c48f;
+}
+.fa-sun {
+  color: #f1c40f;
+}
+
+.dark-mode {
+  filter: invert(100%); /*filter: invert(1) hue-rotate(180deg)*/
+}
+
+.invert {
+  filter: invert(100%);
+}
